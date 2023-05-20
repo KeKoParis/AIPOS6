@@ -1,9 +1,69 @@
-{% extends main.html %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/mainstyle.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/input.css"/>
+    <script type="text/javascript" src="../static/jquery-3.7.0.js"></script>
+    <title>ArcticMonkeysSongs</title>
 
-{% block song_info %}
+    <link rel="shortcut icon" href="../static/pics/ArcticMonkeys.png" type="image/png">
 
-<div>
-  <audio src="../songs/why'd_you_only_call_me_when_you're_high.mp3" preload="auto"></audio>
+</head>
+<body id="page" onload="playSong('{{path_song}}', '{{path_cover}}')" >
+
+<header>
+	<div class="overlay">
+        <img id="pic" src="../static/pics/ArcticMonkeys.png" alt=""/>
+        <h1>Listen Arctic Monkeys Songs</h1>
+    </div>
+</header>
+
+<form method="POST">
+    <div id="find">
+            <div class="page">
+                <div class="field field_v1">
+                    <label for="first-name" class="ha-screen-reader" >First name</label>
+
+                        <input id="first-name" class="field__input" name="song" placeholder="e.g. Brianstorm" >
+
+                        <span class="field__label-wrap" aria-hidden="true">
+                        <span class="field__label">Monkeys' song</span>
+                    </span>
+                </div>
+            </div>
+    </div>
+</form>
+
+<div id="aud" >
+    <h2>{{data[0][4]}}</h2>
+    <div>
+        <audio id="play" controls="controls" ></audio>
+    </div>
+
+    <div>
+        <img id="cover" src="" alt="">
+    </div>
+
+    <div>
+        <p>
+            {{data[0][3]}}
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        function playSong(song, cover){
+            $('audio').attr('src', '../static/songs/'+song);
+            let logo = document.getElementById('cover');
+            logo.src = cover;
+        }
+
+    </script>
+
 </div>
 
-{% endblock %}
+
+</body>
+</html>

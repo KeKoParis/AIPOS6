@@ -95,7 +95,15 @@ div#find{
     margin-top: 2%;
 }
 
+div#aud{
+	width: 80%;
+	display: block;
+	margin:auto;
+
+	border: 4px double black;
+}
 
 form#input-form{
 	height: auto;
 }
+

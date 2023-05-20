@@ -20,13 +20,14 @@
     </div>
 </header>
 
-<form method="post">
+<form method="POST">
     <div id="find">
             <div class="page">
                 <div class="field field_v1">
                     <label for="first-name" class="ha-screen-reader" >First name</label>
 
-                        <input id="first-name" class="field__input" name="song" placeholder="e.g. Brianstorm" >
+                        <input id="first-name" class="field__input" name="song" placeholder="e.g. Brianstorm" onclick="playSong('{{path}}')">
+
                         <span class="field__label-wrap" aria-hidden="true">
                         <span class="field__label">Monkeys' song</span>
                     </span>
@@ -34,9 +35,6 @@
             </div>
     </div>
 </form>
-
-
-{% block song_info %}{% endblock %}
 
 
 </body>
