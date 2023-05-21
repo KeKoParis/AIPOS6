@@ -19,8 +19,8 @@ def main():
                 curr_info[3] = 'The song from "' + data[0][1] + '" album.'
                 data[0] = tuple(curr_info)
 
-            path_song = "../songs/" + data[0][0] + ".mp3"
-
+            path_song = "../songs/" + data[0][0].replace(" ", "_") + ".mp3"
+            print(path_song)
             path_cover = "/static/pics/" + data[0][1].replace(" ", "") + ".png"
 
             return render_template("info.html", data=data, path_song=path_song, path_cover=path_cover)
