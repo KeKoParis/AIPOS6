@@ -11,6 +11,7 @@ def main():
         song = request.form['song']
         print(song)
         song = song.lower()
+        song = song.rstrip()
         try:
             data = list(db.get_data(song))
             if data[0][3] is None:
