@@ -39,24 +39,26 @@
 
 <div id="aud" >
     <h2>{{data[0][4]}}</h2>
+
+
+    <div id="album_cover">
+        <p id="about">
+        <b>Album:</b><i>{{data[0][1]}}</i> <br>
+
+        <img id="cover" src="" title="{{data[0][1]}}" alt="{{data[0][1]}}" >
+
+    </div>
+
+    <div>
+        <p>
+         <b>About:</b> {{data[0][3]}}
+        </p>
+    </div>
+
     <div>
         <audio id="play" controls="controls" ></audio>
     </div>
 
-    <div>
-        <h4>About:</h4>
-        <p>
-            {{data[0][3]}}
-        </p>
-    </div>
-
-
-    <div id="album_cover">
-        <img id="cover" src="" title="{{data[0][1]}}" alt="{{data[0][1]}}">
-        <p>
-        Album: <i>{{data[0][1]}}</i>
-        </p>
-    </div>
 
     <script type="text/javascript">
         function playSong(song, cover){
@@ -68,6 +70,7 @@
     </script>
 
 </div>
+
 
 
 </body>

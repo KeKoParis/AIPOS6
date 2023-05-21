@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
 body#page{
     display: inline-block;
     background: rgb(255,255,255);
@@ -54,8 +56,6 @@ button:hover{
 	cursor: pointer;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Dosis');
-
 
 body {
   display: flex;
@@ -66,9 +66,6 @@ body {
   height: 100vh;
   color: #455A64;
   background-color: #7E57C2;
-  font-family: var(--fontFamily);
-  font-size: var(--fontSizeMd);
-  line-height: var(--lineHeightMd);
 }
 
 .h1{
@@ -96,11 +93,11 @@ div#find{
 }
 
 div#aud{
-	width: 80%;
+	width: 90%;
 	display: block;
 	margin:auto;
-
-	border: 4px double black;
+	text-align: center;
+	padding-bottom: 50px;
 }
 
 form#input-form{
@@ -108,6 +105,30 @@ form#input-form{
 }
 
 img#cover{
-	width: 30%;
+	float: left;
+	width: 10rem;
 }
+
+p{
+	text-align: justify;
+	color: #107ba3; font-family: 'Raleway',sans-serif; font-weight: 500; line-height: 30px; margin: 0 0 24px;
+	overflow:hidden;
+}
+
+img#cover{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+h2{
+	color: #ffffff; font-family: 'Raleway',sans-serif; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: left; text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
 
