@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/mainstyle.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/input.css"/>
     <script type="text/javascript" src="../static/jquery-3.7.0.js"></script>
     <title>ArcticMonkeysSongs</title>
-
+    <hre
     <link rel="shortcut icon" href="../static/pics/ArcticMonkeys.png" type="image/png">
 
 </head>
-<body id="page" onload="playSong('{{path_song}}', '{{path_cover}}')" >
+<body id="page" onload="playSong('{{path_song}}', '{{path_cover}}')">
 
 <header>
-	<div class="overlay">
+    <div class="overlay">
         <img id="pic" src="../static/pics/ArcticMonkeys.png" alt=""/>
         <h1>Listen Arctic Monkeys Songs</h1>
     </div>
@@ -23,46 +24,61 @@
 
 <form method="POST">
     <div id="find">
-            <div class="page">
-                <div class="field field_v1">
-                    <label for="first-name" class="ha-screen-reader" >First name</label>
+        <div class="page">
+            <div class="field field_v1">
+                <label for="first-name" class="ha-screen-reader">First name</label>
 
-                        <input id="first-name" class="field__input" name="song" placeholder="e.g. Brianstorm" >
+                <input id="first-name" class="field__input" name="song" placeholder="e.g. Brianstorm">
 
-                        <span class="field__label-wrap" aria-hidden="true">
+                <span class="field__label-wrap" aria-hidden="true">
                         <span class="field__label">Monkeys' song</span>
                     </span>
-                </div>
             </div>
+        </div>
     </div>
 </form>
 
-<div id="aud" >
-    <h2>{{data[0][4]}}</h2>
+<div id="aud">
+    <h2>{{song_data[0][2]}}</h2>
 
 
     <div id="album_cover">
         <p id="about">
-        <b>Album:</b><i>{{data[0][1]}}</i> <br>
+            <b>Album:</b><i>{{album_data[0][1]}}</i> <br>
 
-        <img id="cover" src="" title="{{data[0][1]}}" alt="{{data[0][1]}}" >
+            <img id="cover" src="" title="{{album_data[0][1]}}" alt="{{album_data[0][1]}}">
 
     </div>
 
     <div>
         <p>
-         <b>About: </b> {{data[0][3]}}
+            <b>About song: </b> {{song_data[0][4]}}
         </p>
+    </div>
+    <div>
+        <p>
+            <b>About album:</b> {{album_data[0][4]}}
+        </p>
+    </div>
+    <div>
+        <p>
+            <b>Year:</b> {{album_data[0][2]}}
+        </p>
+    </div>
+    <div>
+        <audio id="play" controls="controls"></audio>
     </div>
 
     <div>
-        <audio id="play" controls="controls" ></audio>
+        <p>
+            {{members}}
+        </p>
     </div>
 
 
     <script type="text/javascript">
-        function playSong(song, cover){
-            $('audio').attr('src', '../static/songs/'+song);
+        function playSong(song, cover) {
+            $('audio').attr('src', '../static/songs/' + song);
             let logo = document.getElementById('cover');
             logo.src = cover;
         }
@@ -71,7 +87,18 @@
 
 </div>
 
+<form action="/delete_song" method="POST" >
+    <div style="display: flex; justify-content: center;">
+        <input type="hidden" name="song_name" value="{{song_data[0][2]}}">
+        <input type="submit" name='delete' value="delete song">
+    </div>
+</form>
 
+<form action="/button-update" method="post">
+    <div style="display: flex; justify-content: center;">
+        <input type="submit" value="update">
+    </div>
+</form>
 
 </body>
 </html>
