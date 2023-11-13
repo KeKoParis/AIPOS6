@@ -74,3 +74,20 @@ def delete_data(song_name: str):
     finally:
         if db:
             db.close()
+
+
+def create_artist(name: str, session: bool, concert: bool, bio: str):
+    db = None
+    try:
+        db = sqlite3.connect('db/songs.db')
+        cursor = db.cursor()
+
+        query = f'''insert into group_members(name,session,concert,bio)
+                    values(?,?,?,?)'''
+        cursor.execute(query, (name, session, concert, bio))
+        db.commit()
+    except sqlite3.Error as err:
+        print(f'Error: {err}')
+    finally:
+        if db:
+            db.close()

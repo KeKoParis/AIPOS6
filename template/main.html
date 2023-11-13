@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/mainstyle.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/input.css"/>
     <title>RArcticMonkeysSongs</title>
 
@@ -14,7 +15,7 @@
 <body id="page">
 
 <header>
-	<div class="overlay">
+    <div class="overlay">
         <img id="pic" src="../static/pics/ArcticMonkeys.png" alt=""/>
         <h1>Listen Arctic Monkeys Songs</h1>
     </div>
@@ -22,17 +23,18 @@
 
 <form method="POST">
     <div id="find">
-            <div class="page">
-                <div class="field field_v1">
-                    <label for="first-name" class="ha-screen-reader" >First name</label>
+        <div class="page">
+            <div class="field field_v1">
+                <label for="first-name" class="ha-screen-reader">First name</label>
 
-                        <input id="first-name" class="field__input" name="song" placeholder="e.g. Brianstorm" onclick="playSong('{{path}}')">
+                <input id="first-name" class="field__input" name="song" placeholder="e.g. Brianstorm"
+                       onclick="playSong('{{path}}')">
 
-                        <span class="field__label-wrap" aria-hidden="true">
+                <span class="field__label-wrap" aria-hidden="true">
                         <span class="field__label">Monkeys' song</span>
                     </span>
-                </div>
             </div>
+        </div>
     </div>
 </form>
 
@@ -41,8 +43,27 @@
         <input type="submit" value="update">
     </div>
 </form>
+<div style="display: flex; justify-content: center;">
+<a>create artist</a>
+</div>
+
+<div style="display: flex; justify-content: center;">
 
 
+    <form action="/create" method="post">
+        <div style="display: flex; justify-content: center;">
+            <label for="artist">name</label>
+            <input id="artist" name="artist">
+            <label for="bio">bio</label>
+            <input id="bio" name="bio">
+            <label for="concert">concert</label>
+            <input id="concert" name="concert">
+            <label for="session">session</label>
+            <input id="session" name="session">
+            <input type="submit" value="create">
+        </div>
+    </form>
+</div>
 
 </body>
 </html>

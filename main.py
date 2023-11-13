@@ -6,6 +6,17 @@ import db
 app = Flask(__name__, template_folder="template")
 
 
+@app.route('/create', methods=['POST', 'GET'])
+def create():
+    if request.method == 'POST':
+        artist = request.form['artist']
+        bio = request.form['bio']
+        concert = eval(request.form['concert'])
+        session = eval(request.form['session'])
+        db.create_artist(artist, concert, session, bio)
+    return redirect('/')
+
+
 @app.route('/delete_song', methods=['POST', 'GET'])
 def delete():
     song_name = request.form['song_name']
@@ -66,4 +77,4 @@ def form_members_data(members: list):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5500)
+    app.run(debug=True, host="0.0.0.0", port=4444)
